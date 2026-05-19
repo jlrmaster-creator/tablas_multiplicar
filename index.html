@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tablas en Juego</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="app-title">
+        <div class="hero-copy">
+          <p class="kicker">Aprender jugando</p>
+          <h1 id="app-title">Tablas en Juego</h1>
+          <p>
+            Mini-juegos sencillos para practicar las tablas del 1 al 10 con
+            ritmo, color y refuerzo positivo.
+          </p>
+        </div>
+        <div class="hero-scene" aria-hidden="true">
+          <div class="sun"></div>
+          <div class="hill hill-a"></div>
+          <div class="hill hill-b"></div>
+          <div class="rocket">
+            <span>×</span>
+          </div>
+          <div class="cloud cloud-a"></div>
+          <div class="cloud cloud-b"></div>
+        </div>
+      </section>
+
+      <section class="control-panel" aria-label="Controles del juego">
+        <div class="field">
+          <label for="table-select">Tabla</label>
+          <select id="table-select"></select>
+        </div>
+        <div class="field">
+          <label for="mode-select">Juego</label>
+          <select id="mode-select">
+            <option value="balloons">Globos de respuestas</option>
+            <option value="train">Tren de números</option>
+            <option value="stars">Estrellas rápidas</option>
+          </select>
+        </div>
+        <button id="new-round" type="button">Nueva partida</button>
+        <button id="sound-toggle" type="button" aria-pressed="true">Sonido: si</button>
+      </section>
+
+      <section class="status-bar" aria-live="polite">
+        <div>
+          <span class="status-label">Puntos</span>
+          <strong id="score">0</strong>
+        </div>
+        <div>
+          <span class="status-label">Racha</span>
+          <strong id="streak">0</strong>
+        </div>
+        <div>
+          <span class="status-label">Nivel</span>
+          <strong id="level">Explorador</strong>
+        </div>
+      </section>
+
+      <section class="progress-panel" aria-label="Progreso y medallas">
+        <div>
+          <div class="section-title">
+            <span>Progreso por tabla</span>
+            <button id="reset-progress" type="button">Reiniciar</button>
+          </div>
+          <div id="progress-list" class="progress-list"></div>
+        </div>
+        <div>
+          <div class="section-title">
+            <span>Medallas</span>
+          </div>
+          <div id="medal-list" class="medal-list"></div>
+        </div>
+      </section>
+
+      <section class="game-area" aria-label="Zona de juego">
+        <div class="question-card">
+          <p id="mode-name">Globos de respuestas</p>
+          <h2 id="question">3 × 4 = ?</h2>
+          <p id="feedback">Elige la respuesta correcta.</p>
+        </div>
+        <div id="game-board" class="game-board"></div>
+      </section>
+
+      <div id="celebration" class="celebration" aria-live="assertive" hidden>
+        <div class="firework firework-a"></div>
+        <div class="firework firework-b"></div>
+        <div class="firework firework-c"></div>
+        <div class="celebration-message">
+          <p>Racha de 10</p>
+          <strong>Vas muy bien</strong>
+          <span>Sigue asi, estas aprendiendo un monton.</span>
+        </div>
+      </div>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

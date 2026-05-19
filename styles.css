@@ -680,25 +680,8 @@ button:hover {
     grid-template-columns: 1fr;
   }
 
-  .hero-copy {
-    min-height: 260px;
-    background: linear-gradient(180deg, rgba(255, 253, 247, 0.95), rgba(255, 253, 247, 0.62), transparent);
-  }
-
-  .hero-scene {
-    min-height: 170px;
-  }
-
-  .rocket {
-    right: 42%;
-    top: -10px;
-    width: 86px;
-    height: 120px;
-    font-size: 3rem;
-  }
-
   .control-panel {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 
   .control-panel button,
@@ -706,8 +689,13 @@ button:hover {
     width: 100%;
   }
 
+  #new-round,
+  #sound-toggle {
+    grid-column: auto;
+  }
+
   .status-bar {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .progress-panel {
@@ -729,26 +717,155 @@ button:hover {
 
 @media (max-width: 520px) {
   .app-shell {
-    width: min(100% - 20px, 1120px);
-    padding-top: 10px;
+    width: min(100% - 12px, 1120px);
+    padding: 6px 0 18px;
   }
 
   .hero {
-    min-height: 240px;
+    min-height: 92px;
+    grid-template-columns: 1fr 86px;
   }
 
   .hero-copy {
-    padding: 24px;
+    min-height: 92px;
+    padding: 12px 14px;
+    background: rgba(255, 253, 247, 0.9);
   }
 
+  .kicker,
   .hero-copy p:last-child {
-    font-size: 1rem;
+    display: none;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 12vw, 3rem);
+  }
+
+  .hero-scene {
+    min-height: 92px;
+  }
+
+  .sun,
+  .hill,
+  .cloud {
+    display: none;
+  }
+
+  .rocket {
+    right: 14px;
+    top: 10px;
+    width: 46px;
+    height: 64px;
+    border-width: 3px;
+    border-radius: 26px 26px 10px 10px;
+    font-size: 1.8rem;
+    transform: rotate(-10deg);
+  }
+
+  .rocket::before {
+    left: -12px;
+    bottom: -12px;
+    border-width: 0 16px 26px 0;
+  }
+
+  .rocket::after {
+    right: -12px;
+    bottom: -12px;
+    border-width: 26px 16px 0 0;
+  }
+
+  .control-panel,
+  .status-bar,
+  .progress-panel,
+  .game-area {
+    margin-top: 8px;
+  }
+
+  .control-panel {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .field {
+    gap: 3px;
+  }
+
+  .field:first-child,
+  .field:nth-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  label,
+  .status-label,
+  .section-title {
+    font-size: 0.72rem;
+  }
+
+  select,
+  button {
+    min-height: 40px;
+  }
+
+  button {
+    padding: 0 10px;
   }
 
   .status-bar > div,
   .progress-panel > div,
   .question-card {
-    padding: 14px;
+    padding: 10px;
+  }
+
+  .status-bar {
+    gap: 6px;
+  }
+
+  .status-bar > div {
+    min-height: 56px;
+    padding: 8px 6px;
+    text-align: center;
+  }
+
+  .status-bar strong {
+    margin-top: 2px;
+    font-size: clamp(1rem, 5vw, 1.18rem);
+  }
+
+  .section-title {
+    margin-bottom: 8px;
+  }
+
+  .progress-panel {
+    gap: 8px;
+  }
+
+  #reset-progress {
+    min-height: 30px;
+    padding: 0 8px;
+    font-size: 0.72rem;
+  }
+
+  .medal-list {
+    gap: 6px;
+  }
+
+  .medal {
+    min-height: 30px;
+    padding: 0 9px;
+    font-size: 0.78rem;
+  }
+
+  .question-card {
+    min-height: 142px;
+  }
+
+  .question-card p:first-child {
+    font-size: 0.9rem;
+  }
+
+  #feedback {
+    min-height: 42px;
+    font-size: 0.98rem;
   }
 
   .answer-grid,
@@ -759,8 +876,8 @@ button:hover {
   }
 
   .answer-choice {
-    min-height: 96px;
-    font-size: 2rem;
+    min-height: 72px;
+    font-size: 1.75rem;
   }
 
   .progress-list {
@@ -768,7 +885,18 @@ button:hover {
   }
 
   .progress-item {
-    grid-template-columns: 72px minmax(0, 1fr) 38px;
+    grid-template-columns: 64px minmax(0, 1fr) 34px;
+    min-height: 26px;
+    gap: 6px;
+    font-size: 0.82rem;
+  }
+
+  .progress-track {
+    height: 9px;
+  }
+
+  .progress-count {
+    font-size: 0.76rem;
   }
 
   .train-row {
@@ -777,11 +905,12 @@ button:hover {
 
   .train-engine,
   .wagon {
-    min-height: 52px;
+    min-height: 44px;
   }
 
   .question-card h2 {
-    font-size: clamp(1.8rem, 10vw, 2.8rem);
+    margin: 14px 0 10px;
+    font-size: clamp(1.7rem, 9vw, 2.35rem);
   }
 
   .celebration-message {
